@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <title>
+            | Manual Mode |
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+             body{
+        background-image: url(https://lh3.googleusercontent.com/2ENw0mvixg30SemyzmZ1g-LkI7P8Irm3UM6kXZ3r1QQ0I2bppvVJ-oh-nYabWV8SHk2GI3M_A6e_e3sWpLzhhya0oEYIZE0OxotkwEJAWrWMHsMcGd_T_lCbNKof7YgxP3nN3O_pUlU=w2400);
+    }
+            /*Camera direction control*/
+.change_camera_direction{
+    text-align: center;
+    position: relative;
+    color: white;
+    font-family: 'Montserrat', sans-serif ;
+	width: 200px;
+	height: 200px; 
+}
+.change_camera_direction .camera_title{
+	margin: 5% auto;
+    font-size: 36px;
+    color: white;
+    font-family:'Montserrat', sans-serif ;
+}
+.direction_content{
+	 width: 100%;
+	 height: 70%;
+	 position: relative;
+}
+.direction_div{
+	position:relative;
+    text-align: center;
+	width: 30px;
+	height: 30px; 
+}
+
+/*left*/
+.left_direction {
+	top: 4%;
+	left: 14%; 
+    
+}
+/*bottom*/
+.bottom_direction{
+	top:14%;
+	left: 40%;
+}
+/*right*/
+.right_direction{
+	top: -39%;
+	left: 66%;
+}
+/*top*/
+.top_direction{
+	top: -10%;
+	left: 40%; 
+}
+.stop{
+    
+    left:4%;
+}
+.automatic{
+    bottom: 21%;
+    left:54%;  
+}
+.voice{
+    bottom: 10%;
+    left:20%
+}
+p{
+    color:white;
+}
+
+
+
+        </style>
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+       <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+               <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            var http = new XMLHttpRequest();
+
+            var apiKey, deviceId;// variable to store apiKey and devicId
+
+            apiKey = " "; // Enter your apiKey
+            deviceId = " "; // Enter your deviceId
+            // function for move robot in forward direction
+            function forward(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=FORWARD&deviceName="+deviceId,true); 
+            http.send();
+            }
+
+            // function for move robot in backward direction
+            function backward(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=BACKWARD&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for move robot in right direction
+            function right(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=RIGHT&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for move left in forward direction
+            function left(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=LEFT&deviceName="+deviceId,true);
+            http.send();
+            }
+
+            // function for stop robot
+            function stop(){
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=STOP&deviceName="+deviceId,true);
+            http.send();
+            }
+            function gripper(){
+                var x = document.getElementById("myRange").value;
+            http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data="+x+"&deviceName="+deviceId,true);
+            http.send();
+            }
+            
+        </script> 
+    </head>
+    <body>
+       <!--Adjust the camera direction-->
+           
+		<div class="change_camera_direction" style="width:200px; margin:0 auto;">
+            <div class="camera_title">Elaichi</div>
+            <div>
+            <h2 style="color: white; font-size: 24px;">Manual Mode <i class="fas fa-arrows-alt"></i></h2>
+            </div>
+            <br>
+            <br>
+           <div class="direction_content">
+            
+               <div class="direction_div top_direction">
+                <button class="glyphicon glyphicon-arrow-up" style="height: 45px; width: 45px; color: black;" onclick="forward()"></button>
+               </div>
+               <div class="direction_div left_direction">
+                <button class="glyphicon glyphicon-arrow-left" style="height: 45px; width: 45px; color: black;" onclick="left()"></button>
+               </div>
+               <div class="direction_div bottom_direction">
+                <button class="glyphicon glyphicon-arrow-down" style="height: 45px; width: 45px; color: black;" onclick="backward()"></button>
+               </div>
+               <div class="direction_div right_direction">
+                <button class="glyphicon glyphicon-arrow-right" style="height: 45px; width: 45px; color: black;" onclick="right()"></button>
+               </div>
+               <br>
+               <div class="direction_div stop">
+                <button style="height: 40px; width: 90px; border-radius: 14px; background-color: #666f6f; border: 1px solid #00FFFF; font-family: 'Montserrat', sans-serif ;" onclick="stop()">STOP <i class="fas fa-stop"></i></button>
+               </div>
+               <div class="direction_div automatic">
+                <a href="https://htmlpreview.github.io/?https://github.com/tisha-negandhi/major-project/blob/main/mainpage.html" style="color: white;"><button style="height: 40px; width: 100px; border-radius: 14px; background-color: #666f6f; border: 1px solid #00FFFF; font-family: 'Montserrat', sans-serif ;">GO BACK <i class="fas fa-reply"></i></button></a>
+               </div>
+              <br>
+              <div class="slidecontainer">
+                <p style="font-family: 'Montserrat', sans-serif  ; font-size: 25px; ">Gripper Value:</p>
+                <input type="range" min="1" max="100" value="50" onchange="gripper()" id="myRange" style="background-color: #666f6f;">
+               
+           </div>
+       </div>
+       
+       </div>
+       
+
+           
+               
