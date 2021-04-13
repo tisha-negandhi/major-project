@@ -166,11 +166,11 @@
         });
         function data() {
             if (result == "yes")
-                init();
+                gesture();
             else
                 stop();
         }
-        function init() {
+        function gesture() {
       
       var dataContainerMotion = document.getElementById('dataContainerMotion');
 
@@ -183,11 +183,11 @@
                 var html = 'Acceleration:<br />';
                 html += 'x: ' + x +'<br />y: ' + y + '<br/>z: ' + z+ '<br />';
                 dataContainerMotion.innerHTML = html;   
-                gesture();               
+                coordinates();               
               });
       }
     } 
-    function gesture(){
+    function coordinates(){
         if(x>=0 && y<=-2 && z<10) {
             func.innerHTML = 'Calling Forward func'
             forward();
