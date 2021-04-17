@@ -130,7 +130,7 @@ button {
             http.send();
             }
 
-            function open(){ 
+            function openfunc(){ 
             http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=OPEN&deviceName="+deviceId,true);
             http.send();
         }
