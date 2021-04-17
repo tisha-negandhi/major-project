@@ -134,7 +134,7 @@ button {
             http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=OPEN&deviceName="+deviceId,true);
             http.send();
         }
-        function close(){ 
+        function closefunc(){ 
             http.open("GET","https://cloud.boltiot.com/remote/"+apiKey+"/serialWrite?data=CLOSE&deviceName="+deviceId,true);
             http.send();
         }
@@ -168,7 +168,7 @@ button {
                <div>
                 <p style="font-family: 'Montserrat', sans-serif  ; font-size: 25px; ">Gripper</p>
                 <button style="height: 40px; width: 80px; margin-right: 5%;" onclick="openfunc()">OPEN</button>
-                <button style="height: 40px; width: 80px; " onclick="close()">CLOSE </button>
+                <button style="height: 40px; width: 80px; " onclick="closefunc()">CLOSE </button>
                </div>
                <br>
                <div class="direction_div stop">
